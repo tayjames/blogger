@@ -10,15 +10,12 @@ describe "A user can delete a specific article" do
       expect(page).to have_content("Title 1")
 
       click_on("Title 1")
-      save_and_open_page
       expect(page).to have_link("Delete")
       click_on("Delete")
 
       expect(current_path).to eq(articles_path)
       expect(page).to_not have_content("Title 1")
-      expect(page).to_not have_content("Body 1")
       expect(page).to have_content("Title 2")
-      expect(page).to have_content("Body 2")
     end
   end
 end
